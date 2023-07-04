@@ -1,0 +1,41 @@
+.bgImg {
+  width: 100%;
+  height: 100vh;
+  background: url("../../../public/lightning.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.login {
+  position: absolute;
+  top: 10rem;
+  right: 10rem;
+  background: #fff;
+  width: 450px;
+  border-radius: 0.25rem;
+  padding: 2rem 2.5rem;
+  box-sizing: border-box;
+}
+.login p {
+  letter-spacing: 0.05em;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
+.dividerSpan {
+  color: rgb(156 163 175);
+}
+
+.userLogin {
+  width: 100%;
+  user-select: none;
+  border-radius: 9999px;
+  height: 2.5rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: white;
+  border-style: solid;
+}
