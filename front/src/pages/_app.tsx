@@ -9,28 +9,25 @@ import { ConfigProvider } from "antd";
 
 const { Header, Content, Footer } = Layout;
 export default function App({ Component, pageProps }: AppProps) {
-  const [isLogin, setIslogin] = useState(false);
   const router = useRouter();
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  useEffect(() => {
-    if (!isLogin) {
-      router.push("/login");
-    }
-  }, [isLogin, router]);
+  // useEffect(() => {
+  //     router.push("/login");
+  // }, [router]);
 
-  if (!isLogin) {
-    return (
-      <ConfigProvider locale={zhCN}>
-        <Head>
-          <title>登录</title>
-        </Head>
-        <Component {...pageProps} />
-      </ConfigProvider>
-    );
-  }
+  // if (!isRoot) {
+  //   return (
+  //     <ConfigProvider locale={zhCN}>
+  //       <Head>
+  //         <title>登录</title>
+  //       </Head>
+  //       <Component {...pageProps} />
+  //     </ConfigProvider>
+  //   );
+  // }
   return (
     <ConfigProvider locale={zhCN}>
       <Head>
@@ -73,9 +70,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2023 Created by Ant UED
-        </Footer>
+        <Footer style={{ textAlign: "center" }}>辽ICP备2023006147号-1</Footer>
       </Layout>
     </ConfigProvider>
   );

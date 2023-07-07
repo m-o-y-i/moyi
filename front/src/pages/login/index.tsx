@@ -4,10 +4,13 @@ import { Button, Carousel, Divider, Form, Input, message } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import request from "../../lib/request";
 import { getBcryptPassWord, setCustomEncryption } from "../../lib/tools";
+import { useRouter } from "next/router";
 
 const styles = require("./index.module.css");
 const Login: React.FC<{}> = ({}) => {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
   return (
     <div className={styles.bgImg}>
       <Script src="/sakura.js" />
@@ -77,7 +80,7 @@ const Login: React.FC<{}> = ({}) => {
             <Divider plain={true}>
               <span className={styles.dividerSpan}>或者</span>
             </Divider>
-            <Button className={styles.userLogin}>
+            <Button className={styles.userLogin} onClick={() => {}}>
               <UserOutlined />
               &nbsp;游客登录
             </Button>

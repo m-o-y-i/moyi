@@ -4,14 +4,12 @@ module.exports = {
       name: "front",
       script: "npm",
       args: "run start",
-      cwd: "/front", // 前端文件所在的目录
+      cwd: "front",
       watch: true,
     },
     {
       name: "back",
-      script: "npm",
-      args: "run start",
-      cwd: "/back", // 后端文件所在的目录
+      script: "back/dist/index.js",
       watch: true,
     },
   ],
