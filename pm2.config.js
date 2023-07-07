@@ -9,7 +9,7 @@ module.exports = {
     },
     {
       name: "back",
-      script: "back/dist/index.js",
+      script: "dist/index.js",
       cwd: "/var/www/moyi/back",
       watch: true,
     },
