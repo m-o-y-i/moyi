@@ -5,6 +5,7 @@ import { UserOutlined } from "@ant-design/icons";
 import request from "../../lib/request";
 import { getBcryptPassWord, setCustomEncryption } from "../../lib/tools";
 import { useRouter } from "next/router";
+import { setCookie } from "cookies-next";
 
 const styles = require("./index.module.css");
 const Login: React.FC<{}> = ({}) => {
@@ -35,7 +36,7 @@ const Login: React.FC<{}> = ({}) => {
                 setLoading(true);
                 request({
                   method: "POST",
-                  url: "/login",
+                  url: `${process.env.NEXT_PUBLIC_OPEN_URL}/login`,
                   body: {
                     ...values,
                     passWord: setCustomEncryption(values.passWord) + "my",
@@ -43,6 +44,8 @@ const Login: React.FC<{}> = ({}) => {
                 }).then((res) => {
                   if (res.status) {
                     message.success(res.message);
+                    setCookie("isRoot", true);
+                    router.push("/dashboard");
                   } else {
                     message.error(res.message);
                   }
@@ -80,7 +83,13 @@ const Login: React.FC<{}> = ({}) => {
             <Divider plain={true}>
               <span className={styles.dividerSpan}>或者</span>
             </Divider>
-            <Button className={styles.userLogin} onClick={() => {}}>
+            <Button
+              className={styles.userLogin}
+              onClick={() => {
+                setCookie("isRoot", false);
+                router.push("/dashboard");
+              }}
+            >
               <UserOutlined />
               &nbsp;游客登录
             </Button>
