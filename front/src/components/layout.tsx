@@ -1,5 +1,7 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 import { Layout, Menu, theme } from "antd";
+import { getCookie } from "cookies-next";
+import { useRouter } from "next/router";
 
 const { Header, Content, Footer } = Layout;
 const LayoutComponents: React.FC<{
@@ -8,6 +10,14 @@ const LayoutComponents: React.FC<{
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  const isRoot = getCookie("isRoot");
+  const router = useRouter();
+  useEffect(() => {
+    if (!isRoot) {
+      router.push("/login");
+    }
+  }, [router]);
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Header

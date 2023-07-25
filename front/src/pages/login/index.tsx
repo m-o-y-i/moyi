@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Script from "next/script";
 import { Button, Carousel, Divider, Form, Input, message } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import request from "../../lib/request";
-import { getBcryptPassWord, setCustomEncryption } from "../../lib/tools";
+import { setCustomEncryption } from "../../lib/tools";
 import { useRouter } from "next/router";
 import { setCookie } from "cookies-next";
 
