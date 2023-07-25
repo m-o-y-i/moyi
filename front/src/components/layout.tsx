@@ -18,6 +18,17 @@ const LayoutComponents: React.FC<{
       router.push("/login");
     }
   }, [router]);
+
+  const items = [
+    {
+      key: "/dashboard",
+      label: "首页",
+    },
+    {
+      key: "/dashboard/log",
+      label: "日志",
+    },
+  ];
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Header
@@ -33,12 +44,10 @@ const LayoutComponents: React.FC<{
       >
         <div className="demo-logo" />
         <Menu
-          defaultSelectedKeys={["1"]}
+          selectedKeys={[router.pathname]}
           mode="horizontal"
-          items={new Array(3).fill(null).map((_, index) => ({
-            key: String(index + 1),
-            label: `nav ${index + 1}`,
-          }))}
+          items={items}
+          onClick={(item) => router.push(item.key)}
         />
       </Header>
       <Content className="site-layout" style={{ padding: "0px 50px" }}>
