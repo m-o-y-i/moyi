@@ -1,7 +1,8 @@
-import React, { ReactNode, useEffect } from "react";
-import { Layout, Menu, theme } from "antd";
+import React, { ReactNode, useEffect, useState } from "react";
+import { Avatar, Layout, Menu, theme } from "antd";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
+import { UserOutlined } from "@ant-design/icons";
 
 const { Header, Content, Footer } = Layout;
 const LayoutComponents: React.FC<{
@@ -11,12 +12,13 @@ const LayoutComponents: React.FC<{
     token: { colorBgContainer },
   } = theme.useToken();
 
-  const isRoot = getCookie("isRoot");
+  const [isRoot, setIsRoot] = useState<any>(false);
   const router = useRouter();
   useEffect(() => {
-    if (!isRoot) {
+    if (!getCookie("isRoot")) {
       router.push("/login");
     }
+    setIsRoot(getCookie("isRoot"));
   }, [router]);
 
   const items = [
@@ -40,15 +42,20 @@ const LayoutComponents: React.FC<{
           display: "flex",
           alignItems: "center",
           background: "#fff",
+          justifyContent: "space-between",
         }}
       >
-        <div className="demo-logo" />
         <Menu
           selectedKeys={[router.pathname]}
           mode="horizontal"
           items={items}
           onClick={(item) => router.push(item.key)}
         />
+        {isRoot ? (
+          <Avatar style={{ background: "#1890ff" }}>逸</Avatar>
+        ) : (
+          <Avatar icon={<UserOutlined />} />
+        )}
       </Header>
       <Content className="site-layout" style={{ padding: "0px 50px" }}>
         <div
