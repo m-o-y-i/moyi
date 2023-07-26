@@ -15,7 +15,7 @@ const LayoutComponents: React.FC<{
   const [isRoot, setIsRoot] = useState<any>(false);
   const router = useRouter();
   useEffect(() => {
-    if (!getCookie("isRoot")) {
+    if (typeof getCookie("isRoot") !== "boolean") {
       router.push("/login");
     }
     setIsRoot(getCookie("isRoot"));

@@ -7,7 +7,8 @@ const HomePage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isRoot) {
+    console.log(isRoot, typeof isRoot !== "boolean", "zx");
+    if (typeof isRoot !== "boolean") {
       router.push("/login");
     } else {
       router.push("/dashboard");
