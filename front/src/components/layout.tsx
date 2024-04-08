@@ -5,13 +5,13 @@ import { useRouter } from "next/router";
 import { UserOutlined } from "@ant-design/icons";
 
 const { Header, Content, Footer } = Layout;
+
 const LayoutComponents: React.FC<{
   children: ReactNode | null;
 }> = ({ children }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-
   const [isRoot, setIsRoot] = useState<any>(false);
   const router = useRouter();
   useEffect(() => {

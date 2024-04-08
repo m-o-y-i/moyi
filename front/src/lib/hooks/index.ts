@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { getCookie } from 'cookies-next';
-import { useRef, useEffect, useCallback, } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 
 // 防抖
 export const useDebounce = (
@@ -28,3 +27,4 @@ export const useDebounce = (
         }, delay);
     }, dep);
 };
+
