@@ -10,7 +10,7 @@ router.post('/register', async (req: Request, res: Response) => {
     try {
         await client.connect();
         const { userName } = req.body;
-        const users = client.db("users").collection("users");
+        const users = client.db("moyi").collection("users");
         const inquire = await users.findOne({ userName });
 
         if (!inquire) {

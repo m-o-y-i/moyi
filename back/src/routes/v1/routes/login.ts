@@ -10,7 +10,7 @@ router.post('/login', async (req: Request, res: Response) => {
     await client.connect()
     try {
         const { userName } = req.body
-        const users = client.db("users").collection("users")
+        const users = client.db("moyi").collection("users")
         const inquire = await users.findOne({ userName })
         // 解析自定义加密
         getCustomEncryption(req.body.passWord.slice(0, req.body.passWord.length - 2)).then((passWord) => {

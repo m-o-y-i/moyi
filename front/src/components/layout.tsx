@@ -26,10 +26,6 @@ const LayoutComponents: React.FC<{
       key: "/dashboard",
       label: "首页",
     },
-    {
-      key: "/dashboard/log",
-      label: "日志",
-    },
   ];
   return (
     <Layout style={{ minHeight: "100vh" }}>
